@@ -1,5 +1,6 @@
 var tracker = []
 tracker.length = 9
+
 const playerSpan = document.getElementById("player")
 
 function reset(){
@@ -12,13 +13,19 @@ function reset(){
 
 function play(boxId){
     let box = document.getElementById(boxId)
-    if(playerSpan.innerText === "X"){
-        playerSpan.innerText = "O"
-        box.innerText = "X"
+    if (!box.innerText){
+        if(playerSpan.innerText === "X")
+        {
+            playerSpan.innerText = "O"
+            box.innerText = "X"
+        } else {
+            playerSpan.innerText = "X"
+            box.innerText = "O"
+        }
+        
     } else {
-        playerSpan.innerText = "X"
-        box.innerText = "O"
-    }
+        window.alert("choose another box")
+    } 
     tracker[boxId] = box.innerText
     console.log(tracker)
 
